@@ -131,7 +131,13 @@ Below are different path parameters
 **The difference between the path parameters and query parameters is, query parameters are used after the question
 indicator to fetch the relavant information onto th UI**
 
-For the path or query parameters to work we need to clearly define whether the route is path parameter route or quer route, the fastapi matches route exactly so, this is important when defining the query and path parameters
+For the path or query parameters to work we need to clearly define whether the route is path parameter route or quer route, the fastapi matches route exactly so, this is important when defining the query and path parameters.
+
+# Route Matching
+
+Route matching works in prioritizing which route to respond, when there are multiple path parameterS with multiple 
+functions point to the same endpoint.
+
 
 
 
