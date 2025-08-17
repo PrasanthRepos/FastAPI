@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Checking out the Repo
         uses: actions/checkout@v4
-        
+
       - name: Welcome message
         run: echo "My first Github Actions Job"
 
@@ -16,4 +16,4 @@ jobs:
         run: ls -l
 
       - name: Read file
-        run: cat README.md
+        run: cat fastapi_notes.md
