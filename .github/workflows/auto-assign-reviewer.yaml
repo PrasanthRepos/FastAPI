@@ -1,0 +1,30 @@
+name: Auto Assign Reviewer
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  assign-reviewer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign reviewer
+        run: |
+          set -euo pipefail
+          
+          REPO="${{ github.repository }}"  # org/repo
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          
+          # Replace 'gh-username' with actual GitHub username
+          PAYLOAD='{"reviewers":["PrasanthRepos"]}'
+          
+          API="https://api.github.com/repos/${REPO}/pulls/${PR_NUMBER}/requested_reviewers"
+          
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "${API}" \
+            -d "${PAYLOAD}"
