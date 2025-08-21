@@ -28,3 +28,4 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "${API}" \
             -d "${PAYLOAD}"
+
