@@ -1,0 +1,19 @@
+name: Python Lint
+description: Run ruff + black --check
+inputs:
+  python-version:
+    required: false
+    default: '3.11'
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: 'pip'
+    - run: pip install ruff black
+      shell: bash
+    - run: ruff check .
+      shell: bash
+    - run: black --check .
+      shell: bash
