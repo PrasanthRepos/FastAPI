@@ -17,9 +17,8 @@ jobs:
           
           REPO="${{ github.repository }}"  # org/repo
           PR_NUMBER="${{ github.event.pull_request.number }}"
-          
-          # GitHub login usernames of reviewers
-          PAYLOAD='{"reviewers":["SuryaReposGit"]}'
+          # Replace 'gh-username' with actual GitHub username
+          PAYLOAD='{"reviewers":["PrasanthRepos"]}'
           
           API="https://api.github.com/repos/${REPO}/pulls/${PR_NUMBER}/requested_reviewers"
           
@@ -28,4 +27,3 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             "${API}" \
             -d "${PAYLOAD}"
-
